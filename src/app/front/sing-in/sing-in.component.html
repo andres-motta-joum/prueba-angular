@@ -1,1 +1,21 @@
-<p>sing-in works!</p>
+<div class="formulario">
+    <img src="../../../assets/img/auth.png">
+    <h1>Easy Media</h1>
+    <p class="subTittle">Now, share is easy</p>
+    <h2>Sing Up</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <label [ngClass]="{'errorText': requiredEmail}" for="email" >Correo</label>
+        <input name="email" type="text" placeholder="nombre@correo.com" formControlName="email" [ngClass]="{'invalid': requiredEmail}">
+        <p class="error" *ngIf="requiredEmail">Plase provide a valid email</p>
+
+        <label for="password" >Contraseña</label>
+        <input class="password" name="password" type="password" placeholder="* * * * *" formControlName="password">
+
+        <p (click)="navegar('cuenta/phone-validation/email-request')" class="forgotPassword">¿Olvidaste la constraseña?</p>
+
+        <button type="submit">Ingresar</button>
+        <p class="errorNotFound" *ngIf="notFound">Invalid email or password</p>
+    </form>
+    <p class="login">Already have an account? <span (click)="navegar('sing-up')">Sing up here</span></p>
+</div>

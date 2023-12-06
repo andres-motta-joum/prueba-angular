@@ -1,0 +1,165 @@
+.formulario{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    img{
+        width: 110px;
+        margin: auto;
+    }
+    h1{
+        font-size: 32px;
+        font-weight: 520;
+        color: white;
+        letter-spacing: .5px;
+        word-spacing: 1.2px;
+        margin: 10px;
+        text-align: center;
+    }
+    p.subTittle{
+        font-size: 16px;
+        font-weight: 420;
+        color: #2be8cc;
+        letter-spacing: .3px;
+        word-spacing: 1px;
+        margin: 0;
+        text-align: center;
+    }
+    h2{
+        font-size: 20px;
+        font-weight: 440;
+        color: white;
+        letter-spacing: .5px;
+        word-spacing: 1.2px;
+        margin: 10px 0 20px 0;
+        text-align: center;
+    }
+    form{
+        .errorPasswordVerify{
+            color: #ff8686;  
+            transform: translateY(-19px); 
+            font-size: 12px !important; 
+            font-weight: 450; 
+            letter-spacing: .4px; 
+            margin: 0;
+        }
+        label, p{
+            margin: 0;
+            padding-left: 42px;
+            font-size: 15px;
+            font-weight: 480;
+            color: #000;
+            letter-spacing: .4px;
+        }
+        input{
+            width: calc(100% - 80px);
+            margin: 0 0 22px 40px;   
+            padding: 10px 0;
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: none;
+            outline: none;
+            color: #fff;
+            font-weight: 420;
+            font-size: 15.5px;
+            letter-spacing: .3px;
+            &:focus{
+                border-bottom: 2px solid #fff;
+            }
+            &::placeholder{
+                color: #ccc;
+            }
+        }
+        p.correoExistente{
+            color: #ff8686;
+            transform: translate(0, -17px) !important;
+            font-size: 12px;
+            font-weight: 450; 
+            letter-spacing: .4px;
+            margin: 0;
+        }
+        .password::placeholder{
+            transform: translateY(3px);
+            color: #ccc;
+        }
+        .invalid{
+            border-bottom: 2px solid #ff9e9e
+        }
+        .errorText{
+            color: #ff8686;
+        }
+        button{
+            position: relative;
+            margin-top: 25px;
+            border-radius: 21px;
+            width: calc(100% - 80px);
+            height: 42px;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+            font-weight: 540;
+            color: white;
+            background: linear-gradient(to left, #C545A9 0 20%, #5DB5D9 80% 100%);
+            letter-spacing: .7px;
+            word-spacing: 1px;
+            margin-left: 40px;
+            &:hover{
+                opacity: .8;
+            }
+        }
+    }
+    p.login{
+        margin-top: 20px;
+        padding-right: 41px;
+        font-size: 13px;
+        font-weight: 400;
+        color: #ccc;
+        letter-spacing: .2px;
+        text-align: right;
+        span{
+            font-size: 13.5px;
+            color: #2be8cc;
+            cursor: pointer;
+        }
+    }
+
+}
+
+.datos{
+    position: absolute;
+    width: 100%;
+    top: 800px;
+    left: 0;
+    padding-left: 42px;
+    font-size: 16px;
+    font-weight: 450;
+    color: #555;
+    letter-spacing: .4px;
+    padding-bottom: 150px;
+}
+
+.loading{
+    width: 18px;
+	height: 18px;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: absolute;
+	left: calc(50% - 8.5px);
+	top: 8px;
+	border-left-color: transparent;
+	animation: load 1s ease infinite;
+    z-index: 502;
+}
+
+@keyframes load {
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}

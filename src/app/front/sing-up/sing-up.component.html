@@ -1,1 +1,33 @@
-<p>sing-up works!</p>
+<div class="formulario">
+    <img src="../../../assets/img/auth.png">
+    <h1>Easy Media</h1>
+    <p class="subTittle">Now, share is easy</p>
+    <h2>Sing Up</h2>
+    <!----------->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label for="name" [ngClass]="{'errorText': hasError('name')}" for="email" >Full Name</label>
+        <input type="text" placeholder="Camilo Cifuentes" formControlName="name" [ngClass]="{'invalid': hasError('name')}">
+        <app-error-message [control]="form.get('name')!" />
+        <!----------->
+        <label for="email" [ngClass]="{'errorText': hasError('email') || correoExistente != ''}" for="email" >Email</label>
+        <input name="email" type="text" placeholder="example@email.com" formControlName="email" [ngClass]="{'invalid': hasError('email') || correoExistente != '' }" (input)="correoNuevo()">
+        <app-error-message [control]="form.get('email')!" patternType="email"/>
+        <p *ngIf="correoExistente !== ''" class="correoExistente">{{correoExistente}}</p>
+
+        <!----------->
+        <label for="password" [ngClass]="{'errorText': hasError('password')}" for="email" >Password</label>
+        <input class="password" name="password" type="password" placeholder="* * * *" formControlName="password" [ngClass]="{'invalid': hasError('password')}">
+        <app-error-message [control]="form.get('password')!" patternType="password" />
+
+        <!----------->
+        <label for="passwordVerify" *ngIf="inputFunction" [ngClass]="{'errorText': hasError('passwordVerify') || !passwordCheck}">Confirm Password</label>
+        <label for="passwordVerify" *ngIf="!inputFunction" [ngClass]="{'errorText': hasError('passwordVerify')}">Confirm Password</label>
+        <input class="password" name="passwordVerify" type="password" placeholder="* * * * *" formControlName="passwordVerify" [ngClass]="{'invalid': hasError('passwordVerify') || !passwordCheck}" *ngIf="inputFunction"  (input)="passwordVerifyValidator(form)">
+        <input class="password" name="passwordVerify" type="password" placeholder="* * * * *" formControlName="passwordVerify" [ngClass]="{'invalid': hasError('passwordVerify')}" *ngIf="!inputFunction">
+        <app-error-message [control]="form.get('passwordVerify')!"/>
+        <p class="errorPasswordVerify" *ngIf="inputFunction && !passwordCheck">Passwords are not the same</p>
+
+        <button type="submit"><span *ngIf="!cargando">Sing Up</span><span class="loading" *ngIf="cargando"></span></button>
+    </form>
+    <p class="login">Already have an account? <span (click)="navegar('sing-in')">Login</span></p>
+</div>
