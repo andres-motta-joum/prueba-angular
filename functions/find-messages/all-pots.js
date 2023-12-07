@@ -5,14 +5,13 @@ exports.findAllPots = functions.https.onCall(async (data, context) => {
   const messagesRef = admin.firestore().collection("mensajes");
   const snapshot = await messagesRef.get();
 
-  const messages = [];
+  let messages = [];
   snapshot.forEach(doc => {
     const message = doc.data();
     message.id = doc.id;
     messages.push(message);
   });
 
-  let results;
 
   if(data.date){
     // Convierte data.date en un objeto Date
@@ -24,16 +23,25 @@ exports.findAllPots = functions.https.onCall(async (data, context) => {
     nextDate.setDate(targetDate.getDate() + 1);
 
     // Filtra los mensajes donde la fecha es igual a data.date
-    results = messages.filter(message => {
+    messages = messages.filter(message => {
         let messageDate = message.fecha.toDate();
         return messageDate >= targetDate && messageDate < nextDate;
     });
 
   }else{
-    results = messages
+    messages = messages
   }
 
-  return results
+  if(data.words && data.words !== ''){
+    let words = data.words.toLowerCase();
+  
+    messages = messages.filter(message => {
+      let title = message.titulo.toLowerCase();
+      return title.includes(words);
+    });
+  }
+
+  return messages
 
 });
   

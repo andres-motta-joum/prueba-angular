@@ -8,4 +8,4 @@ admin.initializeApp();
 
 exports.createMessage = createMessage.createMessage;
 exports.findMyPots = myPots.findMyPots;
-exports.findAllPots = myPots.findAllPots;
+exports.findAllPots = allPots.findAllPots;

@@ -1,0 +1,125 @@
+.content{
+    margin: auto;
+    width: 400px;
+    max-width: 100%;
+    h1{
+        color: white;
+        font-weight: 550;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    section.loading{
+        width: 100%;
+        height: 60vh;
+        span{
+            width: 32px;
+            height: 32px;
+            border: 3.5px solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: calc(50% - 16px);
+            top: calc(50% - 16px);
+            border-left-color: transparent;
+            animation: load 1s ease infinite;
+            z-index: 502;
+        }
+        
+        @keyframes load {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    }
+
+    section.not-found{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 58vh;
+        img{
+            height: 200px;
+        }
+        p{
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+        }
+    }
+    
+    form{
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        label{
+            font-size: 15px;
+            font-weight: 480;
+            margin: 10px 0 10px 35px;
+        }
+        input{
+            height: 38px;
+            border-radius: 7px;
+            border: 1px solid #666;
+            width: calc(100% - 110px);
+            margin-left: 35px;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+        .in-search{
+            padding-left: 40px;
+            width: calc(100% - 130px);
+        }
+        ng-icon{
+            position: absolute;
+            left: 48px;
+            bottom: 10px;
+            background: #777;
+            color: white;
+            padding: 1px;
+            font-size: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            &:hover{
+                background: #555;
+            }
+        }
+    }
+
+    .index{
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ng-icon{
+            font-size: 32px;
+            color: #555;
+            border-radius: 14px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba($color: #000000, $alpha: .1);
+            }
+        }
+        p{
+            margin: 0;
+            font-size: 20px;
+            font-weight: 500;
+            color: #555;
+            padding: 0 10px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba($color: #000000, $alpha: .1);
+            }
+        }
+        .select{
+            background-color: rgba($color: #000000, $alpha: .1);
+            color: #404040;
+        }
+    }
+}

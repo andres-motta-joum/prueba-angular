@@ -10,4 +10,6 @@ export class PublicationComponentComponent{
   @Input() description!: string | null | undefined;
   @Input() date!: string | null | undefined;
   @Input() name!: string | null | undefined;
+  @Input() words!: string | null | undefined;
+
 }  
