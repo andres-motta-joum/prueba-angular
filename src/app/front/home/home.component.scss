@@ -4,7 +4,7 @@ nav{
     height: 52px;
     background: white;
     display: flex;
-    img{
+    > img{
         height: 38px;
         margin-left: 10px;
         margin-top: 7px;
@@ -22,5 +22,60 @@ nav{
         right: 15px;
         top: 5px;
         font-size: 40px;
+    }
+    .subMenu{
+        position: absolute;
+        display: none;
+        top: 60px;
+        right: 10px;
+        width: 240px;
+        background: white;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 -0.1px 2.8px rgba(0,0,0,0.12), 0 3.1px 2.5px rgba(0,0,0,0.035);
+        z-index: 2;
+        h3{
+            margin: 10px 10px 5px 10px;
+            font-weight: 450;
+            font-size: 18px;
+            letter-spacing: .4px;
+            text-align: center;
+            border-bottom: 1px solid #999;
+        }
+        section{
+            cursor: pointer;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            img{
+                margin-top: 10px;
+                height: 20px;
+                margin-left: 18px;
+            }
+            p{
+                margin: 0;
+                font-size: 16.5px;
+                font-weight: 320;
+                line-height: 40px;
+                padding-left: 7px;
+                color: #444;
+            }
+            &:hover{
+                background: #ddd;
+            }
+        }
+    }
+    .visible{
+        display: block;
+        height: auto;
+        animation: submenu .2s;
+    }
+    @keyframes submenu {
+        0%{
+            height: 0;
+        }
+        100%{
+            height: 198px;
+        }
     }
 }

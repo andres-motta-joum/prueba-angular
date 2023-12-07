@@ -34,7 +34,7 @@ export class SingUpComponent {
       {
         name: ['', [Validators.required, Validators.maxLength(30), Validators.pattern(this.fullNamePattern)] ],
         email: ['', [Validators.required, Validators.pattern(this.emailPattern)] ],
-        password: ['', [Validators.required, Validators.minLength(6),Validators.maxLength(30)]],
+        password: ['', [Validators.required, Validators.minLength(8),Validators.maxLength(30)]],
         passwordVerify: ['', [Validators.required]]
       });
   }

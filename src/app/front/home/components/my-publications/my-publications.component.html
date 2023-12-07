@@ -1,0 +1,29 @@
+<div class="content">
+    <h1>My Publications</h1>
+
+    <form action="">
+        <label for="gitle">Date select</label>
+        <input [type]="dateInput ? 'date' : 'text'" placeholder="Select a date" name="title" [ngClass]="{'in-search': inSearch}"
+       (focus)="onFocus()" (blur)="onBlur()" (keydown)="onKeydown($event)" [(ngModel)]="inputValue">
+       <ng-icon name="heroXMarkMini" *ngIf="inSearch" (click)="deleteSearch()"></ng-icon>
+    </form>
+
+    <section class="loading" *ngIf="cargando"><span></span></section>
+
+    <section class="not-found" *ngIf="!cargando && myMessages.length == 0">
+        <img src="assets/img/notFound.png">
+        <p>Nothing to see here</p>
+    </section>
+
+    <ng-container *ngFor="let message of results?.[index - 1]">
+        <app-publication-component [description]="message.descripcion" [name]="message.nombre" [title]="message.titulo" [date]="message.fechaString"></app-publication-component>
+    </ng-container>
+
+    <section class="index" *ngIf="myMessages && myMessages.length >= 3">
+        <ng-icon name="heroChevronLeftMini" (click)="nuevoIndex(this.index - 1)"></ng-icon>
+        <ng-container *ngFor="let number of numbers">
+            <p [ngClass]="{'select':index == number}" (click)="nuevoIndex(number)">{{number}}</p>
+        </ng-container>
+        <ng-icon name="heroChevronRightMini" (click)="nuevoIndex(this.index + 1)"></ng-icon>
+    </section>
+</div>

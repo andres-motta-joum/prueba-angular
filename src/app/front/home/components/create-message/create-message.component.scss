@@ -1,0 +1,162 @@
+.content{
+    margin: auto;
+    width: 400px;
+    max-width: 100%;
+    h1{
+        color: white;
+        font-weight: 550;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    
+    form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        label{
+            font-size: 15px;
+            font-weight: 480;
+            margin: 30px 0 10px 35px;
+        }
+        input{
+            height: 38px;
+            border-radius: 7px;
+            border: 1px solid #666;
+            width: calc(100% - 110px);
+            margin-left: 35px;
+            padding: 0 20px;
+            font-size: 14px;
+        }
+        .descripcion {
+            margin: 0;
+            margin-left: 35px;
+            color: #505050;
+            font-weight: 420;
+            width: calc(100% - 120px);
+            padding: 18px 25px 25px 25px;
+            border: 1px solid #666;
+            background-color: #fefefe;
+            border-radius: 7px;
+            resize: none;
+            min-height: 115px;
+            max-height: 200px;
+            font-size: 14.5px;
+            letter-spacing: .3px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+            outline: none;
+            .texto{
+                font-size: 14.5px;
+                letter-spacing: .3px;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &:hover{
+                border: 1px solid #ccc;
+            }
+            &:focus {
+                border: 1px solid #b4b4b4;
+                .placeholder{
+                    display: none;
+                }
+            }
+            .placeholder {
+                color: #aaa; /* Color del texto de marcador de posición */
+                text-align: left;
+                margin: 0;
+                letter-spacing: .4px;
+                font-size: 14.5px;
+                pointer-events: none;
+            }
+        }
+    }
+}
+.alert{
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(.7px);
+    .alert-content{
+        position: absolute;
+        top: 180px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        max-width: 80%;
+        height: 300px;
+        background-color: #d9d9d9;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        img{
+            width: 110px;
+        }
+        p{
+            font-weight: 450;
+            font-size: 17px;
+            letter-spacing: .3px;
+            color: #333;
+        }
+        .button{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+}
+
+.button{
+    width: calc(100% - 35px);
+    display: flex;
+    justify-content: end;
+    button{
+        position: relative;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        border-radius: 21px;
+        width: 120px;
+        height: 42px;
+        cursor: pointer;
+        font-size: 18px;
+        border: none;
+        font-weight: 540;
+        color: white;
+        background: linear-gradient(to left, #C545A9 0 20%, #5DB5D9 80% 100%);
+        letter-spacing: .7px;
+        word-spacing: 1px;
+        &:hover{
+            opacity: .8;
+        }
+    }
+}
+.loading{
+    width: 18px;
+	height: 18px;
+	border: 3px solid white;
+	border-radius: 50%;
+	position: absolute;
+	left: calc(50% - 8.5px);
+	top: 8px;
+	border-left-color: transparent;
+	animation: load 1s ease infinite;
+    z-index: 502;
+}
+
+@keyframes load {
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,14 @@
+<div class="publication-content">
+    <h2>
+        <span>{{title}}</span>
+        <span *ngIf="title == '' || !title">Your post title</span>
+    </h2>
+    <p class="description">
+        <span>{{description}}</span>
+        <span *ngIf="description == '' || !description">Create message for share with your friends</span>
+    </p>
+    <div>
+        <p class="date">{{date}}</p>
+        <p class="name">{{name}}</p>
+    </div>
+</div>

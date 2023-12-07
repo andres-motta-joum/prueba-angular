@@ -1,13 +1,11 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+
+const createMessage = require('./create-messages/create-message');
+const myPots = require('./find-messages/my-pots');
+const allPots = require('./find-messages/all-pots')
 admin.initializeApp();
 
-exports.crearProducto = functions.https.onCall((data, context) => {
-    return admin.firestore().collection('usuarios').add({nombre: "Andres"})
-    .then(() => {
-      return {message: 'Producto creado exitosamente'};
-    })
-    .catch((error) => {
-      throw new functions.https.HttpsError('unknown', error.message, error);
-    });
-});
+exports.createMessage = createMessage.createMessage;
+exports.findMyPots = myPots.findMyPots;
+exports.findAllPots = myPots.findAllPots;

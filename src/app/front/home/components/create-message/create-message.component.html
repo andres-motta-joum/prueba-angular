@@ -1,0 +1,24 @@
+<div class="content">
+    <h1>Create message</h1>
+
+    <form action="" (submit)="submit(texto)">
+        <label for="gitle">Title message</label>
+        <input type="text" placeholder="Your post title" [(ngModel)]="title" name="title">
+    
+        <label for="">Messages</label>
+        <div class="descripcion" contenteditable="true" (paste)="onPaste($event)" (input)="onInputChange($event)" (click)="focus()" #texto>
+            <div *ngIf="description == null || description == '' " class="placeholder">Create message for share with your friends</div>
+        </div>
+        <div class="button"><button type="submit"><span *ngIf="!cargando">Share</span><span class="loading" *ngIf="cargando"></span></button></div>
+    </form>
+    <app-publication-component [description]="description" [name]="name" [title]="title" [date]="date$ | async"></app-publication-component>
+</div>
+<section class="alert" *ngIf="alert">
+    <div class="alert-content" (click)="$event.stopPropagation()">
+        <img *ngIf="alert == 'success'" src="assets/img/check.png">
+        <img *ngIf="alert == 'error'" src="assets/img/error.png">
+        <p *ngIf="alert == 'success'">Post Created</p>
+        <p *ngIf="alert == 'error'">Uppss Try Later</p>
+        <div class="button"><button (click)="closeAlert()">OK</button></div>
+    </div>
+</section>  

@@ -1,5 +1,17 @@
 <nav>
     <img src="assets/img/logo.png">
     <h2>Easy Media</h2>
-    <ng-icon name="heroBars3"></ng-icon>
+    <ng-icon name="heroBars3" (click)="subMenu = !subMenu" *ngIf="!subMenu"></ng-icon>
+    <ng-icon name="heroXMark" (click)="subMenu = !subMenu" *ngIf="subMenu"></ng-icon>
+    <section class="subMenu" [ngClass]="{'visible': subMenu}">
+        <h3>{{userName}}</h3>
+        <div>
+            <section (click)="navegar('create-post')"><img src="../../../assets/img/create.png"><p>Create publication</p></section>
+            <section (click)="navegar('my-posts')"><img src="../../../assets/img/myPublications.png"><p>My Publications</p></section>
+            <section (click)="navegar('all-posts')"><img src="../../../assets/img/all.png"><p>See All Publications</p></section>
+            <section (click)="logout()"><img src="../../../assets/img/logout.png"><p>Logout</p></section>
+        </div>
+    </section>
 </nav>
+
+<router-outlet></router-outlet>

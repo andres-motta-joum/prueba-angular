@@ -43,6 +43,9 @@ Apache-2.0
 @ng-icons/core
 MIT
 
+@ng-icons/heroicons
+MIT
+
 firebase/app
 
 firebase/auth
